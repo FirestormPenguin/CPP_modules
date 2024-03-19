@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:35:26 by egiubell          #+#    #+#             */
-/*   Updated: 2024/03/12 14:51:31 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:57:45 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,25 @@
 
 int main(int ac, char **av)
 {
+	int	i;
+	int	j;
+
+	i = 0;
 	if (ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
 	{
-		for (int i = 1; av[i]; i++)
+		while (av[i])
 		{
-			for (int j = 0; av[i][j]; j++)
+			j = 0;
+			while (av[i][j])
+			{
 				std::cout << (char) toupper(av[i][j]);
+				j++;
+			}
 			if (i < ac - 1)
 				std::cout << ' ';
-
+			i++;
 		}
 	}
 	std:: cout << std::endl;
