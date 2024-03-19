@@ -6,14 +6,14 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 19:40:52 by egiubell          #+#    #+#              #
-#    Updated: 2024/03/12 19:52:00 by egiubell         ###   ########.fr        #
+#    Updated: 2024/03/19 12:40:00 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= phonebook
-	
-CC			= c++
-FLAGS		= -Wall -Wextra -Werror
+
+CC			= g++
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 OBJDIR = .obj

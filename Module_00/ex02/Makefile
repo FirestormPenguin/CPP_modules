@@ -5,28 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/17 08:42:40 by ael-khni          #+#    #+#              #
-#    Updated: 2024/03/12 21:08:08 by egiubell         ###   ########.fr        #
+#    Created: 2024/03/12 08:42:40 by egiubell          #+#    #+#              #
+#    Updated: 2024/03/19 12:44:13 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Account
 
-CC			= c++
-FLAGS		= -Wall -Wextra -Werror
+CC			= g++
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
-FILES		= test Account
+OBJDIR = .obj
 
-SRC			= $(FILES:=.cpp)
-OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
+SRC		= test Account
+
+OBJ			= $(addprefix $(OBJDIR)/, $(SRC:=.o))
 HEADER		= Account.hpp
 
 ifeq ($(DEBUG), 1)
 	OPTS = -g
 endif
-
-.PHONY: all clean fclean re bonus norm
 
 all: $(NAME)
 
@@ -44,3 +43,5 @@ fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re bonus norm
