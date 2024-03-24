@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:22:48 by egiubell          #+#    #+#             */
-/*   Updated: 2024/03/12 20:55:23 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/03/24 00:03:33 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Contact::Contact()
 {
 }
-
+Contact
 Contact::~Contact()
 {
 }
