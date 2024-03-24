@@ -6,7 +6,7 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 00:24:35 by egiubell          #+#    #+#              #
-#    Updated: 2024/03/24 00:28:36 by egiubell         ###   ########.fr        #
+#    Updated: 2024/03/24 02:17:31 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM			= rm -rf
 
 OBJDIR = .obj
 
-SRC		= main Zombie
+SRC		= main Zombie newZombie randomChump
 
 OBJ			= $(addprefix $(OBJDIR)/, $(SRC:=.o))
 HEADER		= Zombie.hpp

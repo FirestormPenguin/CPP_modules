@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 00:20:04 by egiubell          #+#    #+#             */
-/*   Updated: 2024/03/24 01:58:36 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/03/24 02:19:06 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,7 @@ int main ()
 			std::cout << std::endl;
 		}
 		else if (input == "exit")
-		{
-			std::cout << "Thanks for trying our zombie management system!" << std::endl;
 			break;
-		}
 		else
 		{
 			std::cout << "command not valid..." << std::endl;
@@ -93,6 +90,7 @@ int main ()
 	{
 		delete *it;
 	}
-
+	std::cout << std::endl;
+	std::cout << "Thanks for trying our zombie management system!" << std::endl;
 	return 0;
 }
