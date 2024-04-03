@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 18:55:46 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/03 19:18:18 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:26:49 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,13 @@ void Harl::complain(std:: string level)
 	{
 		case	0:
 			this->debug();
+			/* FALLTHROUGH */
 		case	1:
 			this->info();
+			/* FALLTHROUGH */
 		case	2:
 			this->warning();
+			/* FALLTHROUGH */
 		case	3:
 			this->error();
 			break;
