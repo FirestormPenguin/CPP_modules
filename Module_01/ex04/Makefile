@@ -5,22 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/24 14:19:43 by egiubell          #+#    #+#              #
-#    Updated: 2024/04/03 18:04:58 by egiubell         ###   ########.fr        #
+#    Created: 2024/04/03 18:11:17 by egiubell          #+#    #+#              #
+#    Updated: 2024/04/03 18:17:38 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= weapon
+NAME		= Sed
 CC			= g++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 OBJDIR = .obj
 
-SRC		= main HumanA HumanB Weapon
+SRC		= main Sed
 
 OBJ			= $(addprefix $(OBJDIR)/, $(SRC:=.o))
-HEADER		= HumanA.hpp HumanB.hpp Weapon.hpp
+HEADER		= Sed.hpp
 
 ifeq ($(DEBUG), 1)
 	OPTS = -g

@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 17:51:43 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/03 17:58:09 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/03 18:55:14 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/03 19:11:00 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#include "Harl.hpp"
 
-#include <iostream>
-
-class Weapon
+int main( int ac, char **av )
 {
-	private:
-		std::string			type;
 
-	public:
-		Weapon(std::string type);
-		~Weapon();
+	if (ac != 2) {
+		return (std::cout << "Usage: ./harlFilter \"level\"\n", EXIT_FAILURE);
+	}
+	std::string	input = av[1];
+	Harl		harl;
 
-		const std::string&	getType(void);
-		void				setType(std::string newType);
-};
+	harl.complain(input);
 
-#endif
+	return EXIT_SUCCESS;
+}

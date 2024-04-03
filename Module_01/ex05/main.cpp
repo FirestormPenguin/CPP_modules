@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 17:51:43 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/03 17:58:09 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/03 18:55:14 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/03 19:07:45 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#include "Harl.hpp"
 
-#include <iostream>
-
-class Weapon
+int main( void )
 {
-	private:
-		std::string			type;
+	std::string	input;
+	Harl		harl;
 
-	public:
-		Weapon(std::string type);
-		~Weapon();
-
-		const std::string&	getType(void);
-		void				setType(std::string newType);
-};
-
-#endif
+	do
+	{
+		std::cout << "Enter a level (DEBUG, INFO, WARNING, ERROR): ";
+		std::cin >> input;
+		harl.complain(input);
+	} while (input.compare("exit"));
+	
+	return EXIT_SUCCESS;
+}

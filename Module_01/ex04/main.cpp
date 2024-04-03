@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 17:51:43 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/03 17:58:09 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/03 18:11:22 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/03 18:43:13 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#include "Sed.hpp"
 
-#include <iostream>
-
-class Weapon
+int main(int ac, char **av)
 {
-	private:
-		std::string			type;
-
-	public:
-		Weapon(std::string type);
-		~Weapon();
-
-		const std::string&	getType(void);
-		void				setType(std::string newType);
-};
-
-#endif
+	if (ac != 4)
+	{
+		std::cerr << "Usage: ./Sed <filename> <to_find> <replace>." << std::endl;
+		return EXIT_FAILURE;
+	}
+	else
+	{
+		Sed	sed(av[1]);
+		sed.replace (av[2], av[3]);
+	}
+	return EXIT_SUCCESS;
+}
