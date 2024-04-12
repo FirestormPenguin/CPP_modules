@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 16:32:17 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/12 12:29:19 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/08 15:27:58 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/12 14:36:36 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "FragTrap.hpp"
 
-#include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 
-class ScavTrap : public ClapTrap
+int main( void )
 {
-	private:
+	DiamondTrap ash("Ash");
+	DiamondTrap ash2(ash);
+	DiamondTrap ash3(".");
 
-	public:
-		ScavTrap(std::string name);
-		~ScavTrap();
+	ash.whoAmI();
+	ash2.whoAmI();
+	ash3 = ash;
+	ash3.whoAmI();
 
-		void	attack(const std::string &target);
-		void	guardGate();
-};
+	ash.attack("the air");
+	ash.takeDamage( 10 );
+	ash.beRepaired( 10 );
 
-#endif
+	return EXIT_SUCCESS;
+}
