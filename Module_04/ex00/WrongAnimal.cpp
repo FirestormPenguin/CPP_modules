@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:40:09 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:05:31 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:12:45 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal(void) : _type("Animal")
+WrongAnimal::WrongAnimal( void ) : _type("WrongAnimal")
 {
 	std::cout << this->_type << " constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type) : _type(type)
+WrongAnimal::WrongAnimal( std::string type ) : _type(type)
 {
-	std::cout << "Animal " << this->_type << " constructor called" << std::endl;
+	std::cout << "WrongAnimal " << this->_type << " constructor called" << std::endl;
 }
 
-Animal::~Animal(void)
+WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
-void Animal::makeSound(void) const
+void WrongAnimal::makeSound( void ) const
 {
-	std::cout << "Animal makeSound called" << std::endl;
+	std::cout << "WrongAnimal makeSound called" << std::endl;
 }
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType( void ) const
 {
 	return this->_type;
 }
