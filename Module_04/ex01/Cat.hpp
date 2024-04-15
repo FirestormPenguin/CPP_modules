@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:40:07 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:21:53 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:44:31 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Cat : public Animal
 {
 	private:
 		Brain *_brain;
+		
 	public:
 		Cat(void);
 		~Cat(void);

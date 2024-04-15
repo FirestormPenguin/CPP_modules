@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 17:17:26 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:49:31 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/15 13:40:11 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/15 18:03:38 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-#include <iostream>
-
-class Brain
+int main()
 {
-	private:
-		std::string ideas[100];
-		
-	public:
-		Brain();
-		~Brain();
-};
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 
-#endif
+	delete j; //should not create a leak
+	delete i;
+
+	std::cout << std::endl;
+	const AAnimal* AAnimals[4] = { new Dog(), new Dog(), new Cat(), new Cat() };
+	for ( int i = 0; i < 4; i++ )
+	{
+		delete AAnimals[i];
+	}
+
+	return 0;
+}

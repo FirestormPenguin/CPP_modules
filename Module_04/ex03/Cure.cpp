@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 17:17:26 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:49:31 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/15 18:16:16 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/15 18:18:20 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#include "Cure.hpp"
 
-#include <iostream>
-
-class Brain
+Cure::Cure() : AMateria("ice")
 {
-	private:
-		std::string ideas[100];
-		
-	public:
-		Brain();
-		~Brain();
-};
+}
 
-#endif
+Cure::~Cure()
+{
+}
+
+AMateria* Cure::clone() const
+{
+	return (new Cure(*this));
+}
+
+void Cure::use( ICharacter& target )
+{
+	std::cout << "I heal " << target.getName() << std::endl;
+}

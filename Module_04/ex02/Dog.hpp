@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 17:17:26 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:49:31 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/15 13:40:07 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/15 17:57:19 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include <iostream>
+#include "AAnimal.hpp"
 
-class Brain
+class Dog : public AAnimal
 {
 	private:
-		std::string ideas[100];
-		
+		Brain *_brain;
+
 	public:
-		Brain();
-		~Brain();
+		Dog(void);
+		~Dog(void);
+
+		void	makeSound(void) const;
 };
 
 #endif

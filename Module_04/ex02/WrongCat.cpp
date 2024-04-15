@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 17:17:26 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:49:31 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/15 16:44:56 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/15 17:57:19 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#include "WrongCat.hpp"
 
-#include <iostream>
-
-class Brain
+WrongCat::WrongCat(void) : WrongAAnimal("WrongCat")
 {
-	private:
-		std::string ideas[100];
-		
-	public:
-		Brain();
-		~Brain();
-};
+	std::cout << this->_type << " constructor called" << std::endl;
+}
 
-#endif
+WrongCat::~WrongCat(void)
+{
+	std::cout << this->_type << " destructor called" << std::endl;
+}
+
+void WrongCat::makeSound(void) const
+{
+	std::cout << "Woof woof" << std::endl;
+}

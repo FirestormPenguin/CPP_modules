@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 17:17:26 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:49:31 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/15 17:46:37 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/15 17:46:58 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#include "Brain.hpp"
 
-#include <iostream>
-
-class Brain
+Brain::Brain(void)
 {
-	private:
-		std::string ideas[100];
-		
-	public:
-		Brain();
-		~Brain();
-};
+	std::cout << "Brain created" << std::endl;
+}
 
-#endif
+Brain::~Brain(void)
+{
+	std::cout << "Brain destroyed" << std::endl;
+}

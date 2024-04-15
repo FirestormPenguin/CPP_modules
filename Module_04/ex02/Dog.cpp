@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 17:17:26 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:49:31 by egiubell         ###   ########.fr       */
+/*   Created: 2024/04/15 14:27:41 by egiubell          #+#    #+#             */
+/*   Updated: 2024/04/15 17:57:19 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#include "Dog.hpp"
 
-#include <iostream>
-
-class Brain
+Dog::Dog(void) : AAnimal("Dog")
 {
-	private:
-		std::string ideas[100];
-		
-	public:
-		Brain();
-		~Brain();
-};
+	std::cout << this->_type << " constructor called" << std::endl;
+}
 
-#endif
+Dog::~Dog(void)
+{
+	std::cout << this->_type << " destructor called" << std::endl;
+}
+
+void Dog::makeSound( void ) const
+{
+	std::cout << "Woof" << std::endl;
+}

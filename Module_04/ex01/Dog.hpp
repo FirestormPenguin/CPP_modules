@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:40:07 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:12:08 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:44:45 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 class Dog : public Animal
 {
+	private:
+		Brain *_brain;
+
 	public:
 		Dog(void);
 		~Dog(void);

@@ -6,21 +6,23 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/08 15:28:03 by egiubell          #+#    #+#              #
-#    Updated: 2024/04/15 17:47:40 by egiubell         ###   ########.fr        #
+#    Updated: 2024/04/15 19:02:35 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Polymorphism
-CC			= g++
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+NAME		= Interface
+CC			= c++
+FLAGS		= -Wall -Wextra -Werror -std=c++98 -g
 RM			= rm -rf
 
 OBJDIR = .obj
 
-SRC		= main Animal Dog Cat WrongAnimal WrongCat Brain
+SRC		= main AMateria Character MateriaSource Ice Cure
 
 OBJ			= $(addprefix $(OBJDIR)/, $(SRC:=.o))
-HEADER		= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
+HEADER		= AMateria.hpp ICharacter.hpp Ice.hpp Cure.hpp Character.hpp \
+				MateriaSource.hpp ICharacter.hpp IMateriaSource.hpp
+
 
 ifeq ($(DEBUG), 1)
 	OPTS = -g
