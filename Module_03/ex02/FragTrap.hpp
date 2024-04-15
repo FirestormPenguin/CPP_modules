@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 12:18:34 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/12 12:18:55 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/04/15 13:28:27 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 class FragTrap : public ClapTrap
 {
-private:
-	FragTrap();
+	private:
+		FragTrap();
 
-public:
-	FragTrap(std::string name);
-	~FragTrap();
+	public:
+		FragTrap(std::string name);
+		~FragTrap();
 
-	void	highFive( void );
+		void	highFive( void );
 };
 
 #endif

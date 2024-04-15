@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 12:18:34 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/12 12:18:55 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/04/15 13:28:19 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
-private:
+	private:
 	FragTrap();
 
-public:
+	public:
 	FragTrap(std::string name);
 	~FragTrap();
 

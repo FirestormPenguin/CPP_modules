@@ -6,21 +6,21 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/08 15:28:03 by egiubell          #+#    #+#              #
-#    Updated: 2024/04/12 12:25:33 by egiubell         ###   ########.fr        #
+#    Updated: 2024/04/15 12:45:41 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= FragTrap
+NAME		= DiamondTrap
 CC			= g++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 OBJDIR = .obj
 
-SRC		= main ClapTrap ScavTrap FragTrap
+SRC		= main ClapTrap ScavTrap FragTrap DiamondTrap
 
 OBJ			= $(addprefix $(OBJDIR)/, $(SRC:=.o))
-HEADER		= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+HEADER		= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 ifeq ($(DEBUG), 1)
 	OPTS = -g
