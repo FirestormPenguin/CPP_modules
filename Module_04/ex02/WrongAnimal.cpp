@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:40:09 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:05:31 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:12:45 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAnimal.hpp"
+#include "WrongAnimal.hpp"
 
-AAnimal::AAnimal(void) : _type("AAnimal")
+WrongAnimal::WrongAnimal( void ) : _type("WrongAnimal")
 {
 	std::cout << this->_type << " constructor called" << std::endl;
 }
 
-AAnimal::AAnimal(std::string type) : _type(type)
+WrongAnimal::WrongAnimal( std::string type ) : _type(type)
 {
-	std::cout << "AAnimal " << this->_type << " constructor called" << std::endl;
+	std::cout << "WrongAnimal " << this->_type << " constructor called" << std::endl;
 }
 
-AAnimal::~AAnimal(void)
+WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << "AAnimal destructor called" << std::endl;
+	std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
-/*Commentata perche anche se non esistente funziona comunque in quanto makeSound
-e' un metodo virtuale puro*/
-// void AAnimal::makeSound(void) const
-// {
-// 	std::cout << "AAnimal makeSound called" << std::endl;
-// }
+void WrongAnimal::makeSound( void ) const
+{
+	std::cout << "WrongAnimal makeSound called" << std::endl;
+}
 
-std::string AAnimal::getType(void) const
+std::string WrongAnimal::getType( void ) const
 {
 	return this->_type;
 }

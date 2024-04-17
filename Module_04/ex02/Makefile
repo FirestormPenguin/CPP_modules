@@ -6,7 +6,7 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/08 15:28:03 by egiubell          #+#    #+#              #
-#    Updated: 2024/04/15 17:57:19 by egiubell         ###   ########.fr        #
+#    Updated: 2024/04/15 17:47:40 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ RM			= rm -rf
 
 OBJDIR = .obj
 
-SRC		= main AAnimal Dog Cat WrongAAnimal WrongCat Brain
+SRC		= main Animal Dog Cat WrongAnimal WrongCat Brain
 
 OBJ			= $(addprefix $(OBJDIR)/, $(SRC:=.o))
-HEADER		= AAnimal.hpp Dog.hpp Cat.hpp WrongAAnimal.hpp WrongCat.hpp Brain.hpp
+HEADER		= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 
 ifeq ($(DEBUG), 1)
 	OPTS = -g
