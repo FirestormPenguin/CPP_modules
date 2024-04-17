@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:40:09 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:05:31 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:36:04 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,22 @@ Animal::Animal(std::string type) : _type(type)
 Animal::~Animal(void)
 {
 	std::cout << "Animal destructor called" << std::endl;
+}
+
+Animal::Animal(const Animal& ptr)
+{
+	std::cout << "Animal copy constructor called" << std::endl;
+	*this = ptr;
+}
+
+Animal& Animal::operator=(const Animal& rhs)
+{
+	std::cout << "Animal assignment operator called" << std::endl;
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+	}
+	return *this;
 }
 
 void Animal::makeSound(void) const

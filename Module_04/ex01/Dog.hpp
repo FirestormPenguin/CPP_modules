@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:40:07 by egiubell          #+#    #+#             */
-/*   Updated: 2024/04/15 17:44:45 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:42:47 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ class Dog : public Animal
 	public:
 		Dog(void);
 		~Dog(void);
+
+		Dog(const Dog& src);
+		Dog& operator=(const Dog &src);
 
 		void	makeSound(void) const;
 };
