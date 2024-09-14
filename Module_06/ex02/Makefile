@@ -6,21 +6,21 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 16:33:20 by egiubell          #+#    #+#              #
-#    Updated: 2024/09/14 15:57:08 by egiubell         ###   ########.fr        #
+#    Updated: 2024/09/14 16:51:31 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Serializer
+NAME		= Base
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 OBJDIR = .obj
 
-SRC		= main Serializer
+SRC		= main Base
 
 OBJ			= $(addprefix $(OBJDIR)/, $(SRC:=.o))
-HEADER		= Serializer.hpp
+HEADER		= Base.hpp
 
 ifeq ($(DEBUG), 1)
 	OPTS = -g
