@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 16:33:09 by egiubell          #+#    #+#             */
-/*   Updated: 2024/08/18 18:14:43 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:46:56 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 class Bureaucrat
 {
 	private:
+		static const int	maxGrade = 1;
+		static const int	minGrade = 150;
 		std::string	_name;
 		int			_grade;
 

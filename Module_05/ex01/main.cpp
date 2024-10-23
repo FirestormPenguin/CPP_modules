@@ -6,73 +6,86 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 16:33:30 by egiubell          #+#    #+#             */
-/*   Updated: 2024/08/18 18:35:25 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:46:32 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-int main(void)
+int main()
 {
-	std::cout << "\nSTART\n";
-	std::cout << "\n --- \n\n";
-	/*Grade iniatialized too high*/
+	std::cout << "Let's create a form with grade to sign 0" << std::endl;
 	try
 	{
-		Bureaucrat A("A", 0);
-		std::cout << A << std::endl;
+		Form	f("EB110", 0, 1);
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	std::cout << "\n --- \n\n";
-	/*Grade initialized too low*/
+
+	std::cout << "\nLet's create a form with grade to execute 0" << std::endl;
 	try
 	{
-		Bureaucrat B("B", 151);
-		std::cout << B << std::endl;
+		Form	f("EB111", 1, 0);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << "\nLet's create a form with grade to execute 151" << std::endl;
+	try
+	{
+		Form	f("EB112", 1, 151);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << "\nLet's create a form with grade to sign 151" << std::endl;
+	try
+	{
+		Form	f("EB113", 151, 1);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Exeption: " << e.what() << std::endl;
+	}
+
+	std::cout << "\nLet's sign a form with appropriate bureaucrat\n" << std::endl;
+	try
+	{
+		Bureaucrat	Odin("Odin", 1);
+		Form		f("EB114", 150, 150);
+
+		std::cout << f << std::endl;
+		Odin.signForm(f);
+		std::cout << f << std::endl;
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << "\n --- \n\n";
-	/*Grade going up and became too high*/
-	try 
+	std::cout << std::endl;
+
+
+	std::cout << "\nLet's sign a form with inappropriate bureaucrat\n" << std::endl;
+	try
 	{
-		Bureaucrat C("C", 3);
-		std::cout << C << std::endl;
-		C.gradeUp();
-		std::cout << C << std::endl;
-		C.gradeUp();
-		std::cout << C << std::endl;
-		C.gradeUp();
-		std::cout << C << std::endl;
+		Bureaucrat	Thor("Thor", 10);
+		Form		f("EB115", 1, 1);
+
+		std::cout << f << std::endl;
+		Thor.signForm(f);
+		std::cout << f << std::endl;
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << "\n --- \n\n";
-	/*Grade going down and became too low*/
-	try 
-	{
-		Bureaucrat D("D", 148);
-		std::cout << D << std::endl;
-		D.gradeDown();
-		std::cout << D << std::endl;
-		D.gradeDown();
-		std::cout << D << std::endl;
-		D.gradeDown();
-		std::cout << D << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "\n --- \n";
-	std::cout << "\nEND\n\n";
-	return (0);
+
+	return 0;
 }
