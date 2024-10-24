@@ -6,11 +6,12 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:00:23 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/22 18:04:32 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:28:27 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
 #include <iostream>
 
@@ -92,3 +93,5 @@ std::ostream&	operator<<(std::ostream& out, const Array<T>& array)
 	out << " }";
 	return (out);
 }
+
+#endif

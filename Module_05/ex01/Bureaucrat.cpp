@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 16:33:16 by egiubell          #+#    #+#             */
-/*   Updated: 2024/08/18 18:13:23 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:46:28 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,3 +76,17 @@ std::ostream	&operator<<(std::ostream &os, Bureaucrat const &b)
 	return (os << b.getName() << ", bureaucrat grade " << b.getGrade());
 }
 
+void	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "Bureaucrat " << this->_name << " successfully signed ";
+		std::cout << "the form " << form.getName() << "!" << std::endl;
+	}
+	catch(const std::exception &e)
+	{
+		std::cout << *this << ". ";
+		std::cout << e.what() << std::endl;
+	}
+}

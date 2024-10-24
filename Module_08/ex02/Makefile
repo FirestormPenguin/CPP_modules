@@ -6,11 +6,11 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 16:33:20 by egiubell          #+#    #+#              #
-#    Updated: 2024/10/22 17:57:00 by egiubell         ###   ########.fr        #
+#    Updated: 2024/10/24 12:24:12 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Array
+NAME		= MutantStack
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
@@ -20,7 +20,7 @@ OBJDIR = .obj
 SRC		= main
 
 OBJ			= $(addprefix $(OBJDIR)/, $(SRC:=.o))
-HEADER		= Array.hpp
+HEADER		= MutantStack.hpp
 
 ifeq ($(DEBUG), 1)
 	OPTS = -g

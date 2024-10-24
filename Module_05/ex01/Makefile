@@ -6,7 +6,7 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 16:33:20 by egiubell          #+#    #+#              #
-#    Updated: 2024/08/18 16:33:23 by egiubell         ###   ########.fr        #
+#    Updated: 2024/10/24 14:57:20 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ RM			= rm -rf
 
 OBJDIR = .obj
 
-SRC		= main Bureaucrat
+SRC		= main Bureaucrat Form
 
 OBJ			= $(addprefix $(OBJDIR)/, $(SRC:=.o))
-HEADER		= Bureaucrat.hpp
+HEADER		= Bureaucrat.hpp Form.hpp
 
 ifeq ($(DEBUG), 1)
 	OPTS = -g

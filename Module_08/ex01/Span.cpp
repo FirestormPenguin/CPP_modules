@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:42:06 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/23 15:16:42 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:14:43 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,8 @@ int Span::shortestSpan()
 	for (size_t i = 2; i < numbers.size(); i++)
 	{
 		int span = numbers[i] - numbers[i - 1];
-		if (span < shortest) {
+		if (span < shortest)
 			shortest = span;
-		}
 	}
 	return shortest;
 }
@@ -67,4 +66,10 @@ int Span::longestSpan()
 }
 
 
+void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (std::distance(begin, end) + numbers.size() > N)
+		throw std::runtime_error("Span would exceed max capacity with all that numbers");
 
+	numbers.insert(numbers.end(), begin, end);
+}
