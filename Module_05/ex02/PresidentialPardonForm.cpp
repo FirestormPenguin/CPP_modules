@@ -5,41 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 16:49:18 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/24 17:31:48 by egiubell         ###   ########.fr       */
+/*   Created: 2024/08/29 06:09:22 by egiubell          #+#    #+#             */
+/*   Updated: 2024/08/29 06:09:34 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidetialPardonForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("PresidentialForm", 25, 5), target(target)
+PresidentialPardonForm::PresidentialPardonForm(void): AForm::AForm("PresidentialPardonForm", 25, 5), _target("null") {}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target): AForm::AForm("PresidentialPardonForm", 25, 5), _target(target) {}
+
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy): AForm::AForm(copy), _target(copy._target) {}
+
+PresidentialPardonForm::~PresidentialPardonForm(void) {}
+
+PresidentialPardonForm const	&PresidentialPardonForm::operator=(const PresidentialPardonForm &copy)
 {
-	std::cout<<"PresidentialPardonForm created"<<std::endl;
+	AForm::operator=(copy);
+	this->_target = copy._target;
+	return (*this);
 }
 
-PresidentialPardonForm::~PresidentialPardonForm()
+void	PresidentialPardonForm::beExecuted(const Bureaucrat &bureaucrat) const
 {
-	std::cout<<"PresidentialPardonForm destroyed"<<std::endl;
+	(void)bureaucrat;
+	std::cout << this->_target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }
 
-std::string PresidentialPardonForm::getTarget(void) const
+std::ostream	&operator<<(std::ostream &str, PresidentialPardonForm const &form)
 {
-	return this->target;
-}
-
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy) : AForm(copy), target(copy.getTarget())
-{
-	std::cout<<"PresidentialPardonForm copy called"<<std::endl;
-}
-
-PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& copy)
-{
-	this->target = copy.getTarget();
-	return *this;
-}
-
-void PresidentialPardonForm::execute(const Bureaucrat& executor) const
-{
-	this->checkExecutability(executor);
-	std::cout << this->target << " has been pardoned by Zafod Beeblebrox." << std::endl;
+	return (str << form.getName() << " form, signed: " << form.getIsSigned() << ", sign grade: " << form.getSignGrade() << ", exec grade: " << form.getExecGrade());
 }

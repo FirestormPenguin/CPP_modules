@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 16:33:09 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/24 17:55:36 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/08/29 06:14:04 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,15 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-#include <iostream>
-#include <string>
-#include <stdexcept>
-#include <fstream>
-#include <cstdlib>
-#include "AForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+# include <iostream>
+# include <string>
+# include <exception>
 
 class AForm;
 
 class Bureaucrat
 {
 	private:
-		static const int	maxGrade = 1;
-		static const int	minGrade = 150;
 		std::string	_name;
 		int			_grade;
 
@@ -46,11 +38,10 @@ class Bureaucrat
 		std::string const	&getName(void) const;
 		int const			&getGrade(void) const;
 
-		void				gradeUp(void);
-		void				gradeDown(void);
-
-		void				signForm(AForm& form);
-		void				executeForm(const AForm &form);
+		void	gradeUp(void);
+		void	gradeDown(void);
+		void	signForm(AForm &form);
+		void	executeForm(AForm const &form);
 
 		class GradeTooHighException: public std::exception
 		{

@@ -6,11 +6,12 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 16:33:16 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/24 17:53:28 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/08/29 06:14:29 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(void): _name("default"), _grade(150) {}
 
@@ -61,6 +62,31 @@ void	Bureaucrat::gradeDown(void)
 		throw (Bureaucrat::GradeTooLowException());
 }
 
+void	Bureaucrat::signForm(AForm &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " cannot sign " << form.getName() << " because: " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " cannot execute " << form.getName() << " because: " << e.what() << std::endl;
+	}
+}
+
 char const	*Bureaucrat::GradeTooHighException::what(void) const throw()
 {
 	return ("Grade is too high");
@@ -76,30 +102,3 @@ std::ostream	&operator<<(std::ostream &os, Bureaucrat const &b)
 	return (os << b.getName() << ", bureaucrat grade " << b.getGrade());
 }
 
-void	Bureaucrat::signForm(AForm& form)
-{
-	try
-	{
-		form.beSigned(*this);
-		std::cout << "Bureaucrat " << this->_name << " successfully signed ";
-		std::cout << "the form " << form.getName() << "!" << std::endl;
-	}
-	catch(const std::exception &e)
-	{
-		std::cout << *this << ". ";
-		std::cout << e.what() << std::endl;
-	}
-}
-
-void	Bureaucrat::executeForm(const AForm &form)
-{
-	try
-	{
-		form.execute(*this);
-		std::cout << this->_name << " executes form " << form.getName() << std::endl;
-	}
-	catch (AForm::InvalidFormException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-}

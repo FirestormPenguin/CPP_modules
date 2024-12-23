@@ -5,29 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 16:49:25 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/24 17:28:25 by egiubell         ###   ########.fr       */
+/*   Created: 2024/08/29 06:06:42 by egiubell          #+#    #+#             */
+/*   Updated: 2024/08/29 06:07:07 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+#pragma once
 
-#include "Bureaucrat.hpp"
+#include <cstdlib>
+#include "AForm.hpp"
 
-class RobotomyRequestForm :  virtual public AForm
+class Bureaucrat;
+
+class RobotomyRequestForm: public AForm
 {
 	private:
-		const std::string target;
-
+		std::string	_target;
+		
 	public:
-		RobotomyRequestForm(const std::string &target);
-		~RobotomyRequestForm();
-		std::string getTarget(void) const;
-		RobotomyRequestForm(const RobotomyRequestForm &copy);
-		RobotomyRequestForm& operator=(const RobotomyRequestForm &copy);
+		RobotomyRequestForm(void);
+		RobotomyRequestForm(std::string const &target);
+		RobotomyRequestForm(RobotomyRequestForm const &copy);
+		~RobotomyRequestForm(void);
 
-		void		execute( const Bureaucrat& executor) const;
+		RobotomyRequestForm const	&operator=(RobotomyRequestForm const &copy);
+
+		void	beExecuted(Bureaucrat const &bureaucrat) const;
 };
 
-#endif
+std::ostream	&operator<<(std::ostream &str, RobotomyRequestForm const &form);

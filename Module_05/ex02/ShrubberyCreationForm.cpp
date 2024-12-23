@@ -5,61 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 16:49:27 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/24 17:32:17 by egiubell         ###   ########.fr       */
+/*   Created: 2024/08/29 06:05:48 by egiubell          #+#    #+#             */
+/*   Updated: 2024/08/29 06:06:10 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShruberryCreationForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
-ShruberryCreationForm::ShruberryCreationForm(const std::string& target) : AForm("ShruberryForm", 145, 137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(void): AForm::AForm("ShrubberyCreationForm", 145, 137), _target("null") {}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm::AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy): AForm::AForm(copy), _target(copy._target) {}
+
+ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
+
+ShrubberyCreationForm const	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
 {
-	std::cout << "Shruberry created" << std::endl;
+	AForm::operator=(copy);
+	this->_target = copy._target;
+	return (*this);
 }
 
-ShruberryCreationForm::~ShruberryCreationForm()
+void	ShrubberyCreationForm::beExecuted(const Bureaucrat &bureaucrat) const
 {
-	std::cout << "Shruberry destroyed" << std::endl;
+	std::ofstream	outfile;
+	
+	outfile.open((this->_target + "_shrubbery").c_str());
+	if (outfile.fail())
+	{
+		std::cout << "Could not open output file" << std::endl;
+		return ;
+	}
+	outfile << TREE;
+	outfile.close();
+	std::cout << bureaucrat.getName() << " successfully created a shrubbery" << std::endl;
 }
 
-std::string ShruberryCreationForm::getTarget(void) const
+std::ostream	&operator<<(std::ostream &str, ShrubberyCreationForm const &form)
 {
-	return this->target;
-}
-
-ShruberryCreationForm::ShruberryCreationForm(const ShruberryCreationForm &copy) : AForm(copy)  , target(copy.getTarget())
-{
-	std::cout<<"Shruberry copy called"<<std::endl;
-}
-
-ShruberryCreationForm& ShruberryCreationForm::operator=(const ShruberryCreationForm &copy)
-{
-	this->target = copy.getTarget();
-	return *this;
-}
-
-void ShruberryCreationForm::execute(const Bureaucrat &executor) const
-{
-	std::string name;
-	const char* file;
-	name = this->getTarget() + "_shruberry";
-	file = name.c_str();
-	std::ofstream file(file);
-
-	file <<"          .     .  .      +     .      .          .         "<<std::endl;
-	file <<"     .       .      .     #       .           .             "<<std::endl;
-	file <<"        .      .         ###            .      .      .     "<<std::endl;
-	file <<"      .      .   \"#:. .:##\"##:. .:#\"  .      .              "<<std::endl;
-	file <<"       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       ."<<std::endl;
-	file <<"  .             \"#########\"#########\"        .        .     "<<std::endl;
-	file <<"        .    \"#:.  \"####\"###\"####\"  .:#\"   .       .        "<<std::endl;
-	file <<"     .     .  \"#######\"\"##\"##\"\"#######\"                  .  "<<std::endl;
-	file <<"                .\"##\"#####\"#####\"##\"           .      .     "<<std::endl;
-	file <<"    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     .         "<<std::endl;
-	file <<"    .    .     \"#####\"\"#######\"\"#####\"    .      .          "<<std::endl;
-	file <<"            .     \"      000      \"    .     .              "<<std::endl;
-	file <<"       .         .   .   000     .        .       .          "<<std::endl;
-	file <<".. .. ..................O000O........................ ......"<<std::endl;
-	file.close();
-
+	return (str << form.getName() << " form, signed: " << form.getIsSigned() << ", sign grade: " << form.getSignGrade() << ", exec grade: " << form.getExecGrade());
 }

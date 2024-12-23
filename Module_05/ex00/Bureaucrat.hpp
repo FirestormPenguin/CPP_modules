@@ -6,14 +6,18 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 16:33:09 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/24 14:28:57 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/08/29 05:22:56 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-#include <iostream>
+# include <iostream>
+# include <string>
+# include <exception>
 
 class Bureaucrat
 {

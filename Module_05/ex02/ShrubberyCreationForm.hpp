@@ -5,29 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 16:49:29 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/24 17:34:45 by egiubell         ###   ########.fr       */
+/*   Created: 2024/08/29 06:03:24 by egiubell          #+#    #+#             */
+/*   Updated: 2024/08/29 06:25:02 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBERRYCREATIONFORM_HPP
-#define SHRUBERRYCREATIONFORM_HPP
 
-#include "Bureaucrat.hpp"
+#pragma once
 
-class ShruberryCreationForm : virtual public AForm
+#include <fstream>
+#include "AForm.hpp"
+
+#define TREE "       &&& &&  & &&\n    && &  |& ()|  @, &&\n    (  &||&   _) &_&\n &()  |()|   %& ()&\n_  &&_ |& |&& __%_ _& &&\n&&   && & &| &|  & & % ()&  &&\n   ()_---()& |&&-&&--%---()~\n              |||\n              |||\n              |||\n              |||\n              |||\n"
+
+class Bureaucrat;
+
+class ShrubberyCreationForm: public AForm
 {
 	private:
-		const std::string target;
-
+		std::string	_target;
+		
 	public:
-		ShruberryCreationForm(const std::string &target);
-		~ShruberryCreationForm();
-		std::string getTarget(void) const;
-		ShruberryCreationForm(const ShruberryCreationForm& copy);
-		ShruberryCreationForm& operator=(const ShruberryCreationForm& copy);
-		virtual void		execute(const Bureaucrat& executor) const;
+		ShrubberyCreationForm(void);
+		ShrubberyCreationForm(std::string const &target);
+		ShrubberyCreationForm(ShrubberyCreationForm const &copy);
+		~ShrubberyCreationForm(void);
 
+		ShrubberyCreationForm const	&operator=(ShrubberyCreationForm const &copy);
+
+		void	beExecuted(Bureaucrat const &bureaucrat) const;
 };
 
-#endif
+std::ostream	&operator<<(std::ostream &str, ShrubberyCreationForm const &form);

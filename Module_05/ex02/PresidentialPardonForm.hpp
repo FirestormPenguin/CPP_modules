@@ -5,30 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 16:49:20 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/24 17:57:43 by egiubell         ###   ########.fr       */
+/*   Created: 2024/08/29 06:08:38 by egiubell          #+#    #+#             */
+/*   Updated: 2024/08/29 06:09:09 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#pragma once
 
-#include "Bureaucrat.hpp"
-class AForm;
+#include "AForm.hpp"
 
-class PresidentialPardonForm : virtual public AForm
+class Bureaucrat;
+
+class PresidentialPardonForm: public AForm
 {
 	private:
-		const std::string target;
-
+		std::string	_target;
+		
 	public:
-		PresidentialPardonForm(const std::string &target);
-		~PresidentialPardonForm();
-		std::string getTarget(void) const;
-		PresidentialPardonForm(const PresidentialPardonForm &copy);
-		PresidentialPardonForm& operator=(const PresidentialPardonForm &copy);
+		PresidentialPardonForm(void);
+		PresidentialPardonForm(std::string const &target);
+		PresidentialPardonForm(PresidentialPardonForm const &copy);
+		~PresidentialPardonForm(void);
 
-		void execute(const Bureaucrat &executor) const;
+		PresidentialPardonForm const	&operator=(PresidentialPardonForm const &copy);
+
+		void	beExecuted(Bureaucrat const &bureaucrat) const;
 };
 
-#endif
+std::ostream	&operator<<(std::ostream &str, PresidentialPardonForm const &form);

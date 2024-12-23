@@ -6,63 +6,56 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:34:20 by egiubell          #+#    #+#             */
-/*   Updated: 2024/10/24 17:03:09 by egiubell         ###   ########.fr       */
+/*   Updated: 2024/08/29 05:26:13 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#pragma once
 
-#include "Bureaucrat.hpp"
+#ifndef FORM_HPP
+# define FORM_HPP
+
+# include <iostream>
+# include <string>
+# include <exception>
 
 class Bureaucrat;
 
 class Form
 {
 	private:
-		static const int	maxGrade = 1;
-		static const int	minGrade = 150;
-
-		const std::string	name;
-		const int			gradeToSign;
-		const int			gradeToExecute;
-		bool				_signed;
-
+		std::string const	_name;
+		bool				_isSigned;
+		int const			_signGrade;
+		int const			_execGrade;
+		
 	public:
 		Form(void);
-		Form(const std::string& name, int gradeToSign, int gradeToExecutre);
-		Form(const Form& other);
+		Form(std::string const &name, int const &signGrade, int const &execGrade);
+		Form(Form const &copy);
 		~Form(void);
 
-		Form&               operator=(const Form& other);
-		
-		const std::string&  getName(void) const;
-		int                 getGradeToSign(void) const;
-		int                 getGradeToExecute(void) const;
-		bool                isSigned(void) const;
-		void                beSigned(const Bureaucrat& b);
+		Form const	&operator=(Form const &copy);
 
-	private:
-		class GradeTooHighException : public std::exception
+		std::string const	&getName(void) const;
+		bool const			&getIsSigned(void) const;
+		int const			&getSignGrade(void) const;
+		int const			&getExecGrade(void) const;
+
+		void	beSigned(Bureaucrat &bureaucrat);
+
+		class GradeTooHighException: public std::exception
 		{
-			private:
-				const char  *msg;
 			public:
-				GradeTooHighException(void);
-				GradeTooHighException(const char *msg);
-				const char      *what() const throw();
+				virtual char const	*what(void) const throw();
 		};
-		class GradeTooLowException : public std::exception
+		class GradeTooLowException: public std::exception
 		{
-			private:
-				const char  *msg;
 			public:
-				GradeTooLowException(void);
-				GradeTooLowException(const char *msg);
-				const char      *what() const throw();
+				virtual char const	*what(void) const throw();
 		};
 };
 
-std::ostream&   operator<<(std::ostream& out, Form& form);
+std::ostream	&operator<<(std::ostream &str, Form const &form);
 
 #endif
